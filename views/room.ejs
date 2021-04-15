@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chatting App</title>
+  <script>
+    const roomName = "<%= roomName %>"
+  </script>
+  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      background-color: darkseagreen;
+    }
+    form{
+      background-color: #FFFDD0;
+      width: 800px;
+      height: 60px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      border-radius: 0px 0px 5px 5px;
+      border-bottom: 1px solid darkseagreen;
+    }
+    input{
+      background-color: ivory;
+      padding: 5px;
+      font-size: 18px;
+      border-radius: 5px;
+      color: #333;
+      border: 1px solid darkseagreen;
+      width: 500px;
+    }
+    #chat{
+      background-color: #FFFDD0;
+      width: 800px;
+      height: 600px;
+      overflow: none;
+    }
+    button{
+      color: #333;
+      background-color: darkseagreen;
+      color: ivory;
+      transition-duration: 250ms;
+      border: 1px solid darkseagreen;
+      border-radius: 5px;
+      padding: 5px;
+      cursor: pointer;
+      padding: 10px;
+      padding-left: 20px;
+      padding-right: 20px; 
+      font-size: 20px;   
+    }
+    button:hover {
+      background-color: #333;
+    }
+    #chat{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+      overflow-y: scroll;
+    }
+    #chat div{
+      padding: 8px;
+      width: 90%;
+      border-bottom:1px solid  darkseagreen;
+    }
+  </style>
+</head>
+<body>
+  <div id='main'>   
+    <div id="chat"></div>
+    <form id="navigation">
+      <input type="text" id="message">
+      <button type="submit" id="send">Send</button>
+    </form>
+  </div>
+</body>
+</html>

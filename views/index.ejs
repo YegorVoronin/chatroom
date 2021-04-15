@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat</title>
+  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+  <style>
+    *{
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+    }
+    body{
+      height: 100vh;
+      width: 100%;
+      background-color: darkseagreen;
+      display: flex;
+      flex-direction: column;
+      justify-content:center;
+      align-items: center;
+    }
+    form{
+      background-color:#FFFDD0 ;
+      height: 150px;
+      width: 500px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      border-radius: 0px 0px 5px 5px;
+    }
+    #room-list{
+      background-color: #FFFDD0;
+      width: 500px;
+      display:flex;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 5px 5px 0px 0px;
+    }
+    #room-list div{
+      border-bottom: 1px solid darkseagreen;
+      color: #333;
+      text-decoration: none;
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      
+    }
+    #room-list a {
+      color: #333;
+      text-decoration: none;
+      transition-duration: 250ms;
+      border: 1px solid darkseagreen;
+      border-radius: 5px;
+      padding: 5px;
+    }
+
+    #room-list a:hover{
+      background-color: darkseagreen;
+      color: ivory;
+    }
+    button {
+      color: #333;
+      background-color: #FFFDD0;
+      transition-duration: 250ms;
+      border: 1px solid darkseagreen;
+      border-radius: 5px;
+      padding: 5px;
+      cursor: pointer;
+      padding: 20px;
+    }
+    button:hover {
+      background-color: darkseagreen;
+      color: ivory;
+    }
+    input{
+      background-color: ivory;
+      padding: 5px;
+      font-size: 18px;
+      border-radius: 5px;
+      color: #333;
+      border: 1px solid darkseagreen;
+    }
+    input:focus{
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+      
+  <div id="room-list"> 
+    <% Object.keys(rooms).forEach(room => { %>
+      <div><%= room %> <a href="/<%= room %>">Enter Chat</a></div>
+      
+    <% }) %>
+  </div>
+  <form action="/room" method="POST">
+    <input name="room" type="text" placeholder="Room name" required>
+    <!-- <input type="text" placeholder="Your name" id = "username"required> -->
+    <button type="submit">Create Room</button>
+  </form>
+</body>
+</html>
